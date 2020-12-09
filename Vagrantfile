@@ -2,9 +2,11 @@ Vagrant.configure("2") do |config|
   config.vm.box = "deargle/metasploitable2"
   config.ssh.username = "msfadmin"
   config.ssh.password = "msfadmin"
-  
+
   config.vm.provider :libvirt do |libvirt|
     libvirt.nic_model_type = 'rtl8139'
+    libvirt.management_network_name = 'infosec-vagrant-libvirt'
+    libvirt.management_network_autostart = true
   end
 
   config.vm.network :private_network,
