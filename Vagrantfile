@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provider :libvirt do |libvirt|
     libvirt.nic_model_type = 'rtl8139'
-    libvirt.management_network_name = 'infosec-vagrant-libvirt'
+    libvirt.management_network_name = 'vagrant-libvirt'
     libvirt.management_network_autostart = true
   end
 
