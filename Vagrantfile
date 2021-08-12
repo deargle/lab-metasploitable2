@@ -2,6 +2,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "deargle/metasploitable2"
   config.ssh.username = "msfadmin"
   config.ssh.password = "msfadmin"
+  config.ssh.insert_key = false
 
   config.vm.provider :libvirt do |libvirt|
     libvirt.nic_model_type = 'rtl8139'
