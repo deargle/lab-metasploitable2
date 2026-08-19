@@ -1,5 +1,13 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "deargle/metasploitable2"
+  # Pinned so the build is reproducible and the box can be pre-added at a known
+  # version before `vagrant up` runs. Vagrant merges a box's embedded
+  # Vagrantfile at CONFIG-LOAD time, so a box that `vagrant up` fetches itself
+  # contributes nothing on that run; pre-adding is what avoids that, and
+  # pre-adding needs a version to ask for. 0.0.4 is what this lab has actually
+  # been running -- it is what floating to "latest" resolved to on the
+  # 2026-08-19 golden-image build.
+  config.vm.box_version = "0.0.4"
   config.ssh.username = "msfadmin"
   config.ssh.password = "msfadmin"
   config.ssh.insert_key = false
