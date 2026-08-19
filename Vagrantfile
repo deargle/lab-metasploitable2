@@ -1,5 +1,5 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = "deargle/metasploitable2"
+  config.vm.box = "security-assignments/metasploitable2"
   # Pinned so the build is reproducible and the box can be pre-added at a known
   # version before `vagrant up` runs. Vagrant merges a box's embedded
   # Vagrantfile at CONFIG-LOAD time, so a box that `vagrant up` fetches itself
@@ -8,6 +8,7 @@ Vagrant.configure("2") do |config|
   # been running -- it is what floating to "latest" resolved to on the
   # 2026-08-19 golden-image build.
   config.vm.box_version = "0.0.4"
+  config.vm.box_url     = "https://storage.googleapis.com/security-assignments-vagrant-boxes/registry/metasploitable2/metadata.json"
   config.ssh.username = "msfadmin"
   config.ssh.password = "msfadmin"
   config.ssh.insert_key = false
